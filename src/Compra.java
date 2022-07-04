@@ -1,5 +1,7 @@
 ﻿import java.time.LocalDate;
 
+import RegrasFormaDePagamento.FormaPagamento;
+
 public class Compra {
     private Cliente cliente;
     private Carrinho carrinho;

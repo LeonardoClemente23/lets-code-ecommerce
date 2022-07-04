@@ -20,8 +20,8 @@ public class Compra {
         this.cliente = cliente;
     }
 
-    public int getIdCarrinho() {
-        return carrinho.getId();
+    public Carrinho getCarrinho() {
+        return carrinho;
     }
 
     public void setCarrinho(Carrinho carrinho) {

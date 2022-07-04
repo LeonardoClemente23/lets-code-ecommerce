@@ -1,12 +1,12 @@
+import carrinho.Carrinho;
+import carrinho.CarrinhoRepository;
 import produtos.Calcado;
 import produtos.Eletronico;
 import produtos.Vestuario;
 
 public class App {
     public static void main(String[] args) throws Exception {
-<<<<<<< HEAD
         testesCliente();
-=======
         Vestuario blusa1 = new Vestuario(Vestuario.Tamanho.P, 111, "blusa descolada", 70.5d);
         System.out.println(blusa1.toString());
 
@@ -15,7 +15,19 @@ public class App {
 
         Eletronico relogio1 = new Eletronico("preto", 3001, "Polar M600", 1500.0);
         System.out.println(relogio1.toString());
->>>>>>> origin/thais
+
+        System.out.println("\n----------Teste do Carrinho---------");
+        Carrinho c1 = new Carrinho();
+        CarrinhoRepository cr = new CarrinhoRepository();
+        cr.adicionaProduto(c1, blusa1, 2);
+        cr.adicionaProduto(c1, relogio1, 1);
+        System.out.println(c1.getListaProdutos());
+        
+        cr.removeProduto(c1, relogio1);
+        cr.adicionaProduto(c1, blusa1, 4);
+        System.out.println(c1.getListaProdutos());
+
+        cr.removeProduto(c1, tenis1);
     }
 
     private static void testesCliente() {

@@ -2,8 +2,8 @@ package exceptions;
 
 import produtos.Produto;
 
-public class produtoAusenteException extends RuntimeException{
-    public <T extends Produto> produtoAusenteException(){
+public class ProdutoAusenteException extends Exception{
+    public ProdutoAusenteException(){
         super("Produto não existe no carrinho!");
     }
 }

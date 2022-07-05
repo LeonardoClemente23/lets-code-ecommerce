@@ -2,6 +2,7 @@ import RegrasFormaDePagamento.FormaPagamento;
 import carrinho.Carrinho;
 import carrinho.CarrinhoRepository;
 import cliente.Cliente;
+import exceptions.ProdutoAusenteException;
 import produtos.Calcado;
 import produtos.Eletronico;
 import produtos.Perfumaria;
@@ -19,7 +20,7 @@ public class App {
 
     }
 
-    public static void testesProduto() {
+    public static void testesProduto() throws ProdutoAusenteException {
 
         Vestuario blusa1 = new Vestuario(Vestuario.Tamanho.P, 111, "blusa descolada", 70.5d);
         System.out.println(blusa1.toString());

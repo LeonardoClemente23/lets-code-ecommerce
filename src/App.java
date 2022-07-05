@@ -125,6 +125,7 @@ public class App {
         for (Integer item : wallmart.getCompras().keySet()) {
 
             System.out.println(wallmart.getCompras().get(item).getCliente().toString());
+            wallmart.getCompras().get(item).imprimeItensComprados();
 
         }
 

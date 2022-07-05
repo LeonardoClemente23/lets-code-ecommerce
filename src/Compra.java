@@ -2,6 +2,7 @@ import java.time.LocalDate;
 import RegrasFormaDePagamento.FormaPagamento;
 import carrinho.Carrinho;
 import cliente.Cliente;
+import produtos.Produto;
 
 public class Compra {
 
@@ -53,16 +54,16 @@ public class Compra {
         this.dataCompra = LocalDate.now();
     }
 
-    // public void imprimeItensComprados() {
+    public void imprimeItensComprados() {
 
-    // System.out.println("Itens comprados:");
+        System.out.println("Itens comprados:");
 
-    // for (Integer item : carrinho.getListaProdutos().keySet()) {
+        for (Produto item : carrinho.getListaProdutos().keySet()) {
 
-    // System.out.println(wallmart.getProdutosVestuario().get(item).toString());
+            System.out.println(carrinho.getListaProdutos().get(item).toString() + " - " + item.toString());
 
-    // }
+        }
 
-    // }
+    }
 
 }

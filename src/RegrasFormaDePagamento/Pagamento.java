@@ -1,10 +1,15 @@
 package RegrasFormaDePagamento;
 
 public class Pagamento implements Aprovacao {
+    private boolean aprovadoCompra;
+
+    public boolean getPagou() {
+        return aprovadoCompra;
+    }
 
     @Override
-    public void pagar() {
-        // TODO Auto-generated method stub
+    public void aprovaCompra() {
+        this.aprovadoCompra = true;
 
     }
 

@@ -6,13 +6,13 @@ public enum FormaPagamento {
     CARTAO_A_VISTA(new Pagamento()),
     PAYPAL(new Pagamento());
 
-    private Aprovacao tipo;
+    private Aprovacao tipoPagamento;
 
-    FormaPagamento(Aprovacao tipo) {
-        this.tipo = tipo;
+    FormaPagamento(Aprovacao tipoPagamento) {
+        this.tipoPagamento = tipoPagamento;
     }
 
     public Aprovacao getFormaPagamento() {
-        return tipo;
+        return tipoPagamento;
     }
 }

@@ -1,5 +1,5 @@
 ﻿package RegrasFormaDePagamento;
 
 public interface Aprovacao {
-    public void pagar();
+    public void aprovaCompra();
 }

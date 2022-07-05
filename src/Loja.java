@@ -1,6 +1,7 @@
 ﻿import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import exceptions.CategoriaInexistenteException;
 import produtos.Calcado;
 import produtos.Eletronico;
 import produtos.Perfumaria;
@@ -40,23 +41,23 @@ public class Loja {
         this.nomeLoja = nomeLoja;
     }
 
-    public void incrementaUltimaChaveCompras(Integer ultimaChaveCompras) {
+    public void incrementaUltimaChaveCompras() {
         this.ultimaChaveCompras++;
     }
 
-    public void incrementaUltimaChaveProdutoPerfumaria(Integer ultimaChaveProdutoPerfumaria) {
+    public void incrementaUltimaChaveProdutoPerfumaria() {
         this.ultimaChaveProdutoPerfumaria++;
     }
 
-    public void incrementaUltimaChaveProdutoCalcado(Integer ultimaChaveProdutoCalcado) {
+    public void incrementaUltimaChaveProdutoCalcado() {
         this.ultimaChaveProdutoCalcado++;
     }
 
-    public void incrementaUltimaChaveProdutoEletronico(Integer ultimaChaveProdutoEletronico) {
+    public void incrementaUltimaChaveProdutoEletronico() {
         this.ultimaChaveProdutoEletronico++;
     }
 
-    public void incrementaUltimaChaveProdutoVestuario(Integer ultimaChaveProdutoVestuario) {
+    public void incrementaUltimaChaveProdutoVestuario() {
         this.ultimaChaveProdutoVestuario++;
     }
 
@@ -80,7 +81,61 @@ public class Loja {
         return ultimaChaveProdutoVestuario;
     }
 
+    public LinkedHashMap<Integer, Compra> getCompras() {
+        return compras;
+    }
+
+    public HashMap<Integer, Perfumaria> getProdutosPerfumaria() {
+        return produtosPerfumaria;
+    }
+
+    public HashMap<Integer, Calcado> getProdutosCalcado() {
+        return produtosCalcado;
+    }
+
+    public HashMap<Integer, Eletronico> getProdutosEletronico() {
+        return produtosEletronico;
+    }
+
+    public HashMap<Integer, Vestuario> getProdutosVestuario() {
+        return produtosVestuario;
+    }
+
     public void adicionarProdutoLoja(Produto produto) {
+
+        switch (produto.getCategoria()) {
+
+            case CALCADO:
+                produtosCalcado.put(this.ultimaChaveProdutoCalcado, (Calcado) produto);
+                incrementaUltimaChaveProdutoCalcado();
+                break;
+
+            case ELETRONICO:
+                produtosEletronico.put(this.ultimaChaveProdutoEletronico, (Eletronico) produto);
+                incrementaUltimaChaveProdutoEletronico();
+                break;
+
+            case PERFUMARIA:
+                produtosPerfumaria.put(this.ultimaChaveProdutoPerfumaria, (Perfumaria) produto);
+                incrementaUltimaChaveProdutoPerfumaria();
+                break;
+
+            case VESTUARIO:
+                produtosVestuario.put(this.ultimaChaveProdutoVestuario, (Vestuario) produto);
+                incrementaUltimaChaveProdutoVestuario();
+                break;
+
+            default:
+                throw new CategoriaInexistenteException(produto.getCategoria().toString()); // Unchecked exception
+
+        }
+
+    }
+
+    public void adicionarCompraLoja(Compra compra) {
+
+        compras.put(this.ultimaChaveCompras, compra);
+        incrementaUltimaChaveCompras();
 
     }
 

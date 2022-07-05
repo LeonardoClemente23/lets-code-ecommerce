@@ -3,6 +3,7 @@
 import RegrasFormaDePagamento.FormaPagamento;
 
 public class Compra {
+
     private Cliente cliente;
     private Carrinho carrinho;
     private FormaPagamento formaPagamento;

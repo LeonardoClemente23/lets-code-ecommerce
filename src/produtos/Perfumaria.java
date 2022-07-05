@@ -9,6 +9,7 @@ public class Perfumaria extends Produto {
         super.setIdProduto(idProduto);
         super.setNome(nome);
         super.setPreco(preco);
+        setCategoria();
     }
 
     public String getFragrancia() {
@@ -20,9 +21,14 @@ public class Perfumaria extends Produto {
     }
 
     @Override
+    public void setCategoria() {
+        super.categoria = Produto.CategoriaProduto.PERFUMARIA;
+    }
+
+    @Override
     public String toString() {
-        return "Eletronico [nome:" + super.getNome() + ",id:" + super.getIdProduto() + ",preço: " + super.getPreco()
-                + ",cor:" + this.fragrancia + "]";
+        return "Perfumaria [nome: " + super.getNome() + ", id: " + super.getIdProduto() + ", preço: " + super.getPreco()
+                + ", fragrância: " + this.fragrancia + "]";
     }
 
 }

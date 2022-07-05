@@ -19,11 +19,13 @@ Utilizar todos os recursos apresentados até agora, principalmente as Collection
 
 # Conteúdo
 
-- Collections (List, Map, Linked, etc):
-- Interfaces:
+- Collections (List, Map, Linked, etc): OK (Loja - LinkedHashMap compras | HashMap produtos\* )
+- Interfaces: OK (Produto.Categoria)
 - Generics:
 - Princípios SOLID:
-- Exceptions:
+- Exceptions: OK (Unchecked - Loja.adicionarProdutoLoja() | )
 - Encapsulamento:
-- Herança:
-- Polimorfismo:
+- Herança: OK (Produto -> Vestuario, Calcado, Eletronico, Perfumaria)
+- Polimorfismo: OK (Loja.adicionarProdutoLoja(Produto produto))
+- ENUM: OK (Produto -> CategoriaProduto | FormaPagamento -> FormaPagamento)
+- SwitchCase: OK (Loja.adicionarProdutoLoja())

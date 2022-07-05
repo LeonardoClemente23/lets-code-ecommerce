@@ -1,5 +1,4 @@
-﻿import java.time.LocalDate;
-
+import java.time.LocalDate;
 import RegrasFormaDePagamento.FormaPagamento;
 
 public class Compra {
@@ -24,6 +23,11 @@ public class Compra {
         this.cliente = cliente;
     }
 
+
+    public int getIdCarrinho() {
+        return carrinho.getId();
+    }
+    
     public Carrinho getCarrinho() {
         return carrinho;
     }

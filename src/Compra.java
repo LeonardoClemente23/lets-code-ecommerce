@@ -1,14 +1,17 @@
-﻿import java.time.LocalDate;
+import java.time.LocalDate;
+import RegrasFormaDePagamento.FormaPagamento;
 
 public class Compra {
+
     private Cliente cliente;
     private Carrinho carrinho;
-    //Forma de pagamento
+    private FormaPagamento formaPagamento;
     private LocalDate dataCompra;
 
-    public Compra(Cliente cliente, Carrinho carrinho) {
+    public Compra(Cliente cliente, Carrinho carrinho, FormaPagamento formaPagamento) {
         this.cliente = cliente;
         this.carrinho = carrinho;
+        this.formaPagamento = formaPagamento;
         setDataCompra();
     }
 
@@ -20,12 +23,25 @@ public class Compra {
         this.cliente = cliente;
     }
 
+
     public int getIdCarrinho() {
         return carrinho.getId();
+    }
+    
+    public Carrinho getCarrinho() {
+        return carrinho;
     }
 
     public void setCarrinho(Carrinho carrinho) {
         this.carrinho = carrinho;
+    }
+
+    public FormaPagamento getFormaPagamento() {
+        return formaPagamento;
+    }
+
+    public void setFormaPagamento(FormaPagamento formaPagamento) {
+        this.formaPagamento = formaPagamento;
     }
 
     public LocalDate getDataCompra() {

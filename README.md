@@ -7,3 +7,25 @@ O cliente tem as opções de pagamento: BOLETO, CARTÃO PARCELADO, CARTÃO A VIS
 Na classe principal da aplicação, simule a entrada de pelo menos dois produtos, em modalidades de compra diferentes, e mostre os itens adquiridos na saída de tela.
 
 Utilizar todos os recursos apresentados até agora, principalmente as Collections (List, Map, Linked, etc), Interfaces e Generics, além de pelo menos um princípio SOLID.
+
+# Checklist
+
+- Quatro categorias de produtos diferentes:
+- Compra carrega itens no carrinho virtual:
+- Pode-se comprar mais de um item de cada produto:
+- Opções de pagamento (BOLETO, CARTÃO PARCELADO, CARTÃO À VISTA e PAYPAL):
+- Parcelamento para a opção cartão parcelado (máximo de 3 vezes):
+- Simulação da compra de 2 produtos em modalidades de pagamento diferentes:
+
+# Conteúdo
+
+- Collections (List, Map, Linked, etc): OK (Loja - LinkedHashMap compras | HashMap produtos\* )
+- Interfaces: OK (Produto.Categoria)
+- Generics:
+- Princípios SOLID:
+- Exceptions: OK (Unchecked - Loja.adicionarProdutoLoja() | )
+- Encapsulamento:
+- Herança: OK (Produto -> Vestuario, Calcado, Eletronico, Perfumaria)
+- Polimorfismo: OK (Loja.adicionarProdutoLoja(Produto produto))
+- ENUM: OK (Produto -> CategoriaProduto | FormaPagamento -> FormaPagamento)
+- SwitchCase: OK (Loja.adicionarProdutoLoja())

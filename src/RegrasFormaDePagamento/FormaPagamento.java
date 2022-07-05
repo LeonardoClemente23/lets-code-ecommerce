@@ -1,18 +1,18 @@
 package RegrasFormaDePagamento;
 
 public enum FormaPagamento {
-    BOLETO(new Pagamento()),
+    BOLETO(new Boleto()),
     CARTAO_PARCELADO(new CartaoParcelado()),
-    CARTAO_A_VISTA(new Pagamento()),
-    PAYPAL(new Pagamento());
+    CARTAO_A_VISTA(new CartaoAVista()),
+    PAYPAL(new PayPal());
 
-    private Aprovacao tipo;
+    private Aprovacao tipoPagamento;
 
-    FormaPagamento(Aprovacao tipo) {
-        this.tipo = tipo;
+    FormaPagamento(Aprovacao tipoPagamento) {
+        this.tipoPagamento = tipoPagamento;
     }
 
     public Aprovacao getFormaPagamento() {
-        return tipo;
+        return tipoPagamento;
     }
 }

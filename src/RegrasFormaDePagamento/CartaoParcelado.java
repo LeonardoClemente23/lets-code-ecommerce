@@ -2,6 +2,7 @@ package RegrasFormaDePagamento;
 
 public class CartaoParcelado implements Aprovacao {
     private int numeroParcelas;
+    private boolean aprovadoCompra;
 
     public int getNumeroParcelas() {
         return numeroParcelas;
@@ -14,10 +15,13 @@ public class CartaoParcelado implements Aprovacao {
         this.numeroParcelas = numeroParcelas;
     }
 
-    @Override
-    public void pagar() {
-        // TODO Auto-generated method stub
+    public boolean isAprovadoCompra() {
+        return aprovadoCompra;
+    }
 
+    @Override
+    public void aprovaCompra() {
+        this.aprovadoCompra = true;
     }
 
 }

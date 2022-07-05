@@ -1,6 +1,7 @@
 import java.time.LocalDate;
 import RegrasFormaDePagamento.FormaPagamento;
 import carrinho.Carrinho;
+import cliente.Cliente;
 
 public class Compra {
 
@@ -51,5 +52,17 @@ public class Compra {
     private void setDataCompra() {
         this.dataCompra = LocalDate.now();
     }
+
+    // public void imprimeItensComprados() {
+
+    // System.out.println("Itens comprados:");
+
+    // for (Integer item : carrinho.getListaProdutos().keySet()) {
+
+    // System.out.println(wallmart.getProdutosVestuario().get(item).toString());
+
+    // }
+
+    // }
 
 }

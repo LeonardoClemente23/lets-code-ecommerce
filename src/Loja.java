@@ -4,6 +4,7 @@ import java.util.LinkedHashMap;
 import produtos.Calcado;
 import produtos.Eletronico;
 import produtos.Perfumaria;
+import produtos.Produto;
 import produtos.Vestuario;
 
 public class Loja {
@@ -39,6 +40,26 @@ public class Loja {
         this.nomeLoja = nomeLoja;
     }
 
+    public void incrementaUltimaChaveCompras(Integer ultimaChaveCompras) {
+        this.ultimaChaveCompras++;
+    }
+
+    public void incrementaUltimaChaveProdutoPerfumaria(Integer ultimaChaveProdutoPerfumaria) {
+        this.ultimaChaveProdutoPerfumaria++;
+    }
+
+    public void incrementaUltimaChaveProdutoCalcado(Integer ultimaChaveProdutoCalcado) {
+        this.ultimaChaveProdutoCalcado++;
+    }
+
+    public void incrementaUltimaChaveProdutoEletronico(Integer ultimaChaveProdutoEletronico) {
+        this.ultimaChaveProdutoEletronico++;
+    }
+
+    public void incrementaUltimaChaveProdutoVestuario(Integer ultimaChaveProdutoVestuario) {
+        this.ultimaChaveProdutoVestuario++;
+    }
+
     public Integer getUltimaChaveCompras() {
         return ultimaChaveCompras;
     }
@@ -57,6 +78,10 @@ public class Loja {
 
     public Integer getUltimaChaveProdutoVestuario() {
         return ultimaChaveProdutoVestuario;
+    }
+
+    public void adicionarProdutoLoja(Produto produto) {
+
     }
 
 }

@@ -17,18 +17,6 @@ public class App {
 
     }
 
-    private static void testesCliente() {
-
-        Cliente cliente1 = new Cliente("Pedro Rosa", "32558741598", "SLRN 416 Bl. M Apto. 206");
-        Cliente cliente2 = new Cliente("João Guimarães", "078.956.369-89", "SLRN 106 Bl. B Apto. 204");
-
-        System.out.println(cliente1.getCpfFormatado());
-        System.out.println(cliente2.getCpfFormatado());
-        System.out.println(cliente1.getCpfLimpo());
-        System.out.println(cliente2.getCpfLimpo());
-
-    }
-
     public static void testesProduto() {
 
         Vestuario blusa1 = new Vestuario(Vestuario.Tamanho.P, 111, "blusa descolada", 70.5d);
@@ -46,7 +34,7 @@ public class App {
         cr.adicionaProduto(c1, blusa1, 2);
         cr.adicionaProduto(c1, relogio1, 1);
         System.out.println(c1.getListaProdutos());
-        
+
         cr.removeProduto(c1, relogio1);
         cr.adicionaProduto(c1, blusa1, 4);
         System.out.println(c1.getListaProdutos());

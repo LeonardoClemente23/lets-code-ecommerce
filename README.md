@@ -20,11 +20,11 @@ Utilizar todos os recursos apresentados até agora, principalmente as Collection
 # Conteúdo
 
 - Collections (List, Map, Linked, etc): OK (Loja - LinkedHashMap compras | HashMap produtos\* )
-- Interfaces: OK (Produto.Categoria)
-- Generics:
-- Princípios SOLID:
+- Interfaces: OK (produto.Categoria)
+- Generics: OK (carrinho.CarrinhoRepository)
+- Princípios SOLID: Checking (Checar se um dos princípios solid está sendo aplicado)
 - Exceptions: OK (Unchecked - Loja.adicionarProdutoLoja() | )
-- Encapsulamento:
+- Encapsulamento: Checking (Checar em todas as classes se o encapsulamento não foi ferido de alguma forma)
 - Herança: OK (Produto -> Vestuario, Calcado, Eletronico, Perfumaria)
 - Polimorfismo: OK (Loja.adicionarProdutoLoja(Produto produto))
 - ENUM: OK (Produto -> CategoriaProduto | FormaPagamento -> FormaPagamento)

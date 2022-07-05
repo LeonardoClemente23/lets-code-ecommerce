@@ -10,9 +10,9 @@ Utilizar todos os recursos apresentados até agora, principalmente as Collection
 
 # Checklist
 
-- Quatro categorias de produtos diferentes:
-- Compra carrega itens no carrinho virtual:
-- Pode-se comprar mais de um item de cada produto:
+- Quatro categorias de produtos diferentes: OK (Calcado, Eletronico, Perfumaria, Vestuario)
+- Compra carrega itens no carrinho virtual: OK
+- Pode-se comprar mais de um item de cada produto: OK
 - Opções de pagamento (BOLETO, CARTÃO PARCELADO, CARTÃO À VISTA e PAYPAL):
 - Parcelamento para a opção cartão parcelado (máximo de 3 vezes):
 - Simulação da compra de 2 produtos em modalidades de pagamento diferentes:

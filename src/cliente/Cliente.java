@@ -1,4 +1,6 @@
-﻿public class Cliente {
+﻿package cliente;
+
+public class Cliente {
 
     private String nome;
     private String cpf;
@@ -59,7 +61,7 @@
 
     @Override
     public String toString() {
-        return "Cliente [nome=" + nome + ", cpf=" + cpf + ", endereco=" + endereco + "]";
+        return "Cliente [nome: " + nome + ", cpf: " + cpf + ", endereco: " + endereco + "]";
     }
 
 }

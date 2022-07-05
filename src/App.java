@@ -1,5 +1,7 @@
+import RegrasFormaDePagamento.FormaPagamento;
 import carrinho.Carrinho;
 import carrinho.CarrinhoRepository;
+import cliente.Cliente;
 import produtos.Calcado;
 import produtos.Eletronico;
 import produtos.Perfumaria;
@@ -59,12 +61,15 @@ public class App {
         System.out.println("\n####################### INÍCIO DOS TESTES DE LOJA #######################");
 
         Loja wallmart = new Loja("WallMart");
+        Cliente cliente1 = new Cliente("Pedro Rosa", "32558741598", "SLRN 416 Bl. M Apto. 206");
         Perfumaria bvlgari = new Perfumaria("Amadeirada, quente e ambarada", 1, "LE GEMME AMBERO EAU DE PARFUM",
                 2106.00);
         Perfumaria hadrien = new Perfumaria("Cítrico", 2, "Eau d'Hadrien", 1400.00);
         Eletronico iphone = new Eletronico("Azul SIerra", 1, "Apple iPhone 13 Pro Max (256 GB)", 8135.00);
         Calcado alphafly = new Calcado(39, 1, "Nike Air Zoom Alphafly NEXT% Flyknit Ekiden", 2199.99);
         Vestuario jumpsuit = new Vestuario(Vestuario.Tamanho.P, 1, "Jersey jumpsuit with DG logo", 3567.29);
+        Carrinho c1 = new Carrinho();
+        CarrinhoRepository cr = new CarrinhoRepository();
 
         wallmart.adicionarProdutoLoja(bvlgari);
         wallmart.adicionarProdutoLoja(iphone);
@@ -101,6 +106,25 @@ public class App {
         for (Integer item : wallmart.getProdutosVestuario().keySet()) {
 
             System.out.println(wallmart.getProdutosVestuario().get(item).toString());
+
+        }
+
+        System.out.println("\nItens adicionados no carrinho: ");
+
+        cr.adicionaProduto(c1, wallmart.getProdutosPerfumaria().get(1), 2);
+        cr.adicionaProduto(c1, wallmart.getProdutosEletronico().get(1), 1);
+        cr.adicionaProduto(c1, wallmart.getProdutosVestuario().get(1), 1);
+        System.out.println(c1.getListaProdutos());
+
+        Compra compra1 = new Compra(cliente1, c1, FormaPagamento.CARTAO_A_VISTA);
+
+        wallmart.adicionarCompraLoja(compra1);
+
+        System.out.println("\nCompra: ");
+
+        for (Integer item : wallmart.getCompras().keySet()) {
+
+            System.out.println(wallmart.getCompras().get(item).getCliente().toString());
 
         }
 

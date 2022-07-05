@@ -1,6 +1,7 @@
 package produtos;
 
 public class Vestuario extends Produto {
+
     private Tamanho tamanho;
 
     public Vestuario(Vestuario.Tamanho tamanho, int idProduto, String nome, double preco) {
@@ -8,6 +9,7 @@ public class Vestuario extends Produto {
         super.setNome(nome);
         super.setPreco(preco);
         this.tamanho = tamanho;
+        setCategoria();
     }
 
     public enum Tamanho {
@@ -53,9 +55,14 @@ public class Vestuario extends Produto {
     }
 
     @Override
+    public void setCategoria() {
+        super.categoria = Produto.CategoriaProduto.VESTUARIO;
+    }
+
+    @Override
     public String toString() {
-        return "Vestuario [nome:" + super.getNome() + ",id:" + super.getIdProduto() + ",preço: " + super.getPreco()
-                + ",tamanho:" + this.tamanho + "]";
+        return "Vestuario [nome: " + super.getNome() + ",id: " + super.getIdProduto() + ",preço: " + super.getPreco()
+                + ",tamanho: " + this.tamanho + "]";
     }
 
 }

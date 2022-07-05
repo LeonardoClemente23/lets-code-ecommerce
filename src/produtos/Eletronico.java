@@ -1,6 +1,7 @@
 package produtos;
 
 public class Eletronico extends Produto {
+
     private String cor;
 
     public Eletronico(String cor, int idProduto, String nome, double preco) {
@@ -8,6 +9,7 @@ public class Eletronico extends Produto {
         super.setIdProduto(idProduto);
         super.setNome(nome);
         super.setPreco(preco);
+        setCategoria();
     }
 
     public String getCor() {
@@ -49,9 +51,14 @@ public class Eletronico extends Produto {
     }
 
     @Override
+    public void setCategoria() {
+        super.categoria = Produto.CategoriaProduto.ELETRONICO;
+    }
+
+    @Override
     public String toString() {
-        return "Eletronico [nome:" + super.getNome() + ",id:" + super.getIdProduto() + ",preço: " + super.getPreco()
-                + ",cor:" + this.cor + "]";
+        return "Eletronico [nome: " + super.getNome() + ",id: " + super.getIdProduto() + ",preço: " + super.getPreco()
+                + ",cor: " + this.cor + "]";
     }
 
 }

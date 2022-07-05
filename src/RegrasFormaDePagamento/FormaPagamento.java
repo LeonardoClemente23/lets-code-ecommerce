@@ -1,6 +1,7 @@
 package RegrasFormaDePagamento;
 
 public enum FormaPagamento {
+
     BOLETO(new Pagamento()),
     CARTAO_PARCELADO(new CartaoParcelado()),
     CARTAO_A_VISTA(new Pagamento()),
@@ -15,4 +16,5 @@ public enum FormaPagamento {
     public Aprovacao getFormaPagamento() {
         return tipo;
     }
+
 }

@@ -1,6 +1,7 @@
 package RegrasFormaDePagamento;
 
 public class CartaoParcelado implements Aprovacao {
+
     private int numeroParcelas;
 
     public int getNumeroParcelas() {

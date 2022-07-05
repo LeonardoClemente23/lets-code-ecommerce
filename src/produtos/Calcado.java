@@ -1,6 +1,7 @@
 package produtos;
 
 public class Calcado extends Produto {
+
     private int numeracao;
 
     public Calcado(int numeracao, int idProduto, String nome, double preco) {
@@ -8,11 +9,11 @@ public class Calcado extends Produto {
         super.setIdProduto(idProduto);
         super.setNome(nome);
         super.setPreco(preco);
+        setCategoria();
     }
 
     @Override
     public int getIdProduto() {
-
         return super.getIdProduto();
     }
 
@@ -43,8 +44,8 @@ public class Calcado extends Produto {
 
     @Override
     public String toString() {
-        return "Calçado [nome:" + super.getNome() + ",id:" + super.getIdProduto() + ",preço: " + super.getPreco()
-                + ",numeracao:" + this.numeracao + "]";
+        return "Calçado [nome: " + super.getNome() + ",id: " + super.getIdProduto() + ",preço: " + super.getPreco()
+                + ",numeracao: " + this.numeracao + "]";
     }
 
     public int getNumeracao() {
@@ -53,6 +54,11 @@ public class Calcado extends Produto {
 
     public void setNumeracao(int numeracao) {
         this.numeracao = numeracao;
+    }
+
+    @Override
+    public void setCategoria() {
+        super.categoria = Produto.CategoriaProduto.CALCADO;
     }
 
 }

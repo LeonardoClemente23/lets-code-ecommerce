@@ -1,13 +1,16 @@
 import produtos.Calcado;
 import produtos.Eletronico;
+import produtos.Perfumaria;
 import produtos.Vestuario;
 
 public class App {
     public static void main(String[] args) throws Exception {
 
-        testesProduto();
+        // testesProduto();
 
-        testesCliente();
+        // testesCliente();
+
+        testesLoja();
 
     }
 
@@ -33,6 +36,60 @@ public class App {
 
         Eletronico relogio1 = new Eletronico("preto", 3001, "Polar M600", 1500.0);
         System.out.println(relogio1.toString());
+
+    }
+
+    public static void testesLoja() {
+
+        System.out.println("\n####################### INÍCIO DOS TESTES DE LOJA #######################");
+
+        Loja wallmart = new Loja("WallMart");
+        Perfumaria bvlgari = new Perfumaria("Amadeirada, quente e ambarada", 1, "LE GEMME AMBERO EAU DE PARFUM",
+                2106.00);
+        Perfumaria hadrien = new Perfumaria("Cítrico", 2, "Eau d'Hadrien", 1400.00);
+        Eletronico iphone = new Eletronico("Azul SIerra", 1, "Apple iPhone 13 Pro Max (256 GB)", 8135.00);
+        Calcado alphafly = new Calcado(39, 1, "Nike Air Zoom Alphafly NEXT% Flyknit Ekiden", 2199.99);
+        Vestuario jumpsuit = new Vestuario(Vestuario.Tamanho.P, 1, "Jersey jumpsuit with DG logo", 3567.29);
+
+        wallmart.adicionarProdutoLoja(bvlgari);
+        wallmart.adicionarProdutoLoja(iphone);
+        wallmart.adicionarProdutoLoja(alphafly);
+        wallmart.adicionarProdutoLoja(jumpsuit);
+        wallmart.adicionarProdutoLoja(hadrien);
+
+        System.out.println("\nItens de perfumaria: ");
+
+        for (Integer item : wallmart.getProdutosPerfumaria().keySet()) {
+
+            System.out.println(wallmart.getProdutosPerfumaria().get(item).toString());
+
+        }
+
+        System.out.println("\nItens de eletrônicos: ");
+
+        for (Integer item : wallmart.getProdutosEletronico().keySet()) {
+
+            System.out.println(wallmart.getProdutosEletronico().get(item).toString());
+
+        }
+
+        System.out.println("\nItens de calçados: ");
+
+        for (Integer item : wallmart.getProdutosCalcado().keySet()) {
+
+            System.out.println(wallmart.getProdutosCalcado().get(item).toString());
+
+        }
+
+        System.out.println("\nItens de vestuário: ");
+
+        for (Integer item : wallmart.getProdutosVestuario().keySet()) {
+
+            System.out.println(wallmart.getProdutosVestuario().get(item).toString());
+
+        }
+
+        System.out.println("\n####################### FIM DOS TESTES DE LOJA #######################");
 
     }
 

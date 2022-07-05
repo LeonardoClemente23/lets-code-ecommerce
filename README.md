@@ -10,20 +10,22 @@ Utilizar todos os recursos apresentados até agora, principalmente as Collection
 
 # Checklist
 
-- Quatro categorias de produtos diferentes:
-- Compra carrega itens no carrinho virtual:
-- Pode-se comprar mais de um item de cada produto:
+- Quatro categorias de produtos diferentes: OK (Calcado, Eletronico, Perfumaria, Vestuario)
+- Compra carrega itens no carrinho virtual: OK
+- Pode-se comprar mais de um item de cada produto: OK
 - Opções de pagamento (BOLETO, CARTÃO PARCELADO, CARTÃO À VISTA e PAYPAL):
 - Parcelamento para a opção cartão parcelado (máximo de 3 vezes):
 - Simulação da compra de 2 produtos em modalidades de pagamento diferentes:
 
 # Conteúdo
 
-- Collections (List, Map, Linked, etc):
-- Interfaces:
-- Generics:
-- Princípios SOLID:
-- Exceptions:
-- Encapsulamento:
-- Herança:
-- Polimorfismo:
+- Collections (List, Map, Linked, etc): OK (Loja - LinkedHashMap compras | HashMap produtos\* )
+- Interfaces: OK (produto.Categoria)
+- Generics: OK (carrinho.CarrinhoRepository)
+- Princípios SOLID: Checking (Checar se um dos princípios solid está sendo aplicado)
+- Exceptions: OK (Unchecked - Loja.adicionarProdutoLoja() | )
+- Encapsulamento: Checking (Checar em todas as classes se o encapsulamento não foi ferido de alguma forma)
+- Herança: OK (Produto -> Vestuario, Calcado, Eletronico, Perfumaria)
+- Polimorfismo: OK (Loja.adicionarProdutoLoja(Produto produto))
+- ENUM: OK (Produto -> CategoriaProduto | FormaPagamento -> FormaPagamento)
+- SwitchCase: OK (Loja.adicionarProdutoLoja())

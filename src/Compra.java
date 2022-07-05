@@ -1,8 +1,11 @@
-﻿import java.time.LocalDate;
-
+import java.time.LocalDate;
 import RegrasFormaDePagamento.FormaPagamento;
+import carrinho.Carrinho;
+import cliente.Cliente;
+import produtos.Produto;
 
 public class Compra {
+
     private Cliente cliente;
     private Carrinho carrinho;
     private FormaPagamento formaPagamento;
@@ -22,6 +25,10 @@ public class Compra {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+
+    // public int getIdCarrinho() {
+    // return carrinho.getId();
+    // }
 
     public Carrinho getCarrinho() {
         return carrinho;
@@ -45,6 +52,18 @@ public class Compra {
 
     private void setDataCompra() {
         this.dataCompra = LocalDate.now();
+    }
+
+    public void imprimeItensComprados() {
+
+        System.out.println("Itens comprados:");
+
+        for (Produto item : carrinho.getListaProdutos().keySet()) {
+
+            System.out.println(carrinho.getListaProdutos().get(item).toString() + " - " + item.toString());
+
+        }
+
     }
 
 }

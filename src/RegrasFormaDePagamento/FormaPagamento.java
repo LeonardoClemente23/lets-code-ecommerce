@@ -15,4 +15,5 @@ public enum FormaPagamento {
     public Aprovacao getFormaPagamento() {
         return tipoPagamento;
     }
+
 }

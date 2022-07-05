@@ -15,7 +15,7 @@ public class CartaoParcelado implements Aprovacao {
         this.numeroParcelas = numeroParcelas;
     }
 
-    public boolean getAprovadoCompra() {
+    public boolean isAprovadoCompra() {
         return aprovadoCompra;
     }
 

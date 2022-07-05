@@ -1,9 +1,9 @@
 package RegrasFormaDePagamento;
 
-public class Pagamento implements Aprovacao {
+public class CartaoAVista implements Aprovacao {
     private boolean aprovadoCompra;
 
-    public boolean getPagou() {
+    public boolean isAprovadoCompra() {
         return aprovadoCompra;
     }
 

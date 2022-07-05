@@ -1,10 +1,10 @@
 package RegrasFormaDePagamento;
 
 public enum FormaPagamento {
-    BOLETO(new Pagamento()),
+    BOLETO(new Boleto()),
     CARTAO_PARCELADO(new CartaoParcelado()),
-    CARTAO_A_VISTA(new Pagamento()),
-    PAYPAL(new Pagamento());
+    CARTAO_A_VISTA(new CartaoAVista()),
+    PAYPAL(new PayPal());
 
     private Aprovacao tipoPagamento;
 

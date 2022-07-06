@@ -1,6 +1,9 @@
-﻿import java.util.HashMap;
+﻿package loja;
+
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
+import compra.Compra;
 import exceptions.CategoriaInexistenteException;
 import produtos.Calcado;
 import produtos.Eletronico;

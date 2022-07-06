@@ -29,3 +29,9 @@ Utilizar todos os recursos apresentados até agora, principalmente as Collection
 - Polimorfismo: OK (Loja.adicionarProdutoLoja(Produto produto))
 - ENUM: OK (Produto -> CategoriaProduto | FormaPagamento -> FormaPagamento)
 - SwitchCase: OK (Loja.adicionarProdutoLoja())
+
+# To-Do
+
+- Calcular o total da compra depois que ela tiver sido aprovada:
+- Implementar a aprovação do pagamento dentro de conta:
+- Testes das classes?

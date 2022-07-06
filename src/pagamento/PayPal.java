@@ -1,6 +1,6 @@
-package RegrasFormaDePagamento;
+package pagamento;
 
-public class CartaoAVista implements Aprovacao {
+public class PayPal implements Aprovacao {
     private boolean aprovadoCompra;
 
     public boolean isAprovadoCompra() {
@@ -10,7 +10,6 @@ public class CartaoAVista implements Aprovacao {
     @Override
     public void aprovaCompra() {
         this.aprovadoCompra = true;
-
     }
 
 }

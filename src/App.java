@@ -1,9 +1,9 @@
-import RegrasFormaDePagamento.FormaPagamento;
 import carrinho.Carrinho;
 import carrinho.CarrinhoRepository;
 import cliente.Cliente;
 import compra.Compra;
 import loja.Loja;
+import pagamento.FormaPagamento;
 import produtos.Calcado;
 import produtos.Eletronico;
 import produtos.Perfumaria;

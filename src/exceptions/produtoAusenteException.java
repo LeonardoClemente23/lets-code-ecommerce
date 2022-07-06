@@ -1,4 +1,4 @@
-package exceptions;
+﻿package exceptions;
 
 public class ProdutoAusenteException extends RuntimeException {
     public ProdutoAusenteException() {

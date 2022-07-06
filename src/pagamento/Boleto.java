@@ -1,4 +1,4 @@
-package RegrasFormaDePagamento;
+package pagamento;
 
 import java.util.Random;
 

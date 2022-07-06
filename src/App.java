@@ -2,6 +2,8 @@ import RegrasFormaDePagamento.FormaPagamento;
 import carrinho.Carrinho;
 import carrinho.CarrinhoRepository;
 import cliente.Cliente;
+import compra.Compra;
+import loja.Loja;
 import produtos.Calcado;
 import produtos.Eletronico;
 import produtos.Perfumaria;
@@ -11,71 +13,36 @@ public class App {
 
     public static void main(String[] args) throws Exception {
 
-        // testesProduto();
-
-        // testesCliente();
-
-        testesLoja();
-
-    }
-
-    public static void testesProduto() {
-
-        Vestuario blusa1 = new Vestuario(Vestuario.Tamanho.P, 111, "blusa descolada", 70.5d);
-        System.out.println(blusa1.toString());
-
-        Calcado tenis1 = new Calcado(37, 2001, "Asics run", 652.9);
-        System.out.println(tenis1.toString());
-
-        Eletronico relogio1 = new Eletronico("preto", 3001, "Polar M600", 1500.0);
-        System.out.println(relogio1.toString());
-
-        System.out.println("\n----------Teste do Carrinho---------");
-        Carrinho c1 = new Carrinho();
-        CarrinhoRepository cr = new CarrinhoRepository();
-        cr.adicionaProduto(c1, blusa1, 2);
-        cr.adicionaProduto(c1, relogio1, 1);
-        System.out.println(c1.getListaProdutos());
-
-        cr.removeProduto(c1, relogio1);
-        cr.adicionaProduto(c1, blusa1, 4);
-        System.out.println(c1.getListaProdutos());
-
-        cr.removeProduto(c1, tenis1);
-    }
-
-    private static void testesCliente() {
-
-        Cliente cliente1 = new Cliente("Pedro Rosa", "32558741598", "SLRN 416 Bl. M Apto. 206");
-        Cliente cliente2 = new Cliente("João Guimarães", "078.956.369-89", "SLRN 106 Bl. B Apto. 204");
-
-        System.out.println(cliente1.getCpfFormatado());
-        System.out.println(cliente2.getCpfFormatado());
-        System.out.println(cliente1.getCpfLimpo());
-        System.out.println(cliente2.getCpfLimpo());
-
-    }
-
-    public static void testesLoja() {
-
-        System.out.println("\n####################### INÍCIO DOS TESTES DE LOJA #######################");
+        System.out.println("\n####################### INÍCIO DA SIMULAÇÃO DO E-COMMERCE #######################");
 
         Loja wallmart = new Loja("WallMart");
         Cliente cliente1 = new Cliente("Pedro Rosa", "32558741598", "SLRN 416 Bl. M Apto. 206");
+        Cliente cliente2 = new Cliente("João Guimarães", "078.956.369-89", "SLRN 106 Bl. B Apto. 204");
+        Carrinho c1 = new Carrinho();
+        Carrinho c2 = new Carrinho();
+        CarrinhoRepository cr = new CarrinhoRepository();
         Perfumaria bvlgari = new Perfumaria("Amadeirada, quente e ambarada", 1, "LE GEMME AMBERO EAU DE PARFUM",
                 2106.00);
         Perfumaria hadrien = new Perfumaria("Cítrico", 2, "Eau d'Hadrien", 1400.00);
         Eletronico iphone = new Eletronico("Azul SIerra", 1, "Apple iPhone 13 Pro Max (256 GB)", 8135.00);
         Calcado alphafly = new Calcado(39, 1, "Nike Air Zoom Alphafly NEXT% Flyknit Ekiden", 2199.99);
+        Calcado derby = new Calcado(42, 2, "Oxford Derby Prada (NOT BROGUES)", 6700.00);
         Vestuario jumpsuit = new Vestuario(Vestuario.Tamanho.P, 1, "Jersey jumpsuit with DG logo", 3567.29);
-        Carrinho c1 = new Carrinho();
-        CarrinhoRepository cr = new CarrinhoRepository();
+        Vestuario armani = new Vestuario(Vestuario.Tamanho.M, 2, "Terno Giorgio Armani (2 peças)", 22895.00);
+        Vestuario moschino = new Vestuario(Vestuario.Tamanho.P, 3, "Moletom Moschino (com capuz e detalhe de bolso)",
+                2383.00);
+
+        System.out.println("\nInserindo itens na loja.");
 
         wallmart.adicionarProdutoLoja(bvlgari);
+        wallmart.adicionarProdutoLoja(hadrien);
         wallmart.adicionarProdutoLoja(iphone);
         wallmart.adicionarProdutoLoja(alphafly);
+        wallmart.adicionarProdutoLoja(derby);
         wallmart.adicionarProdutoLoja(jumpsuit);
-        wallmart.adicionarProdutoLoja(hadrien);
+        wallmart.adicionarProdutoLoja(alphafly);
+        wallmart.adicionarProdutoLoja(armani);
+        wallmart.adicionarProdutoLoja(moschino);
 
         System.out.println("\nItens de perfumaria: ");
 
@@ -109,27 +76,47 @@ public class App {
 
         }
 
-        System.out.println("\nItens adicionados no carrinho: ");
-
+        System.out.println("\nAdicionando itens ao carrinho (compra 1): ");
         cr.adicionaProduto(c1, wallmart.getProdutosPerfumaria().get(1), 2);
         cr.adicionaProduto(c1, wallmart.getProdutosEletronico().get(1), 1);
         cr.adicionaProduto(c1, wallmart.getProdutosVestuario().get(1), 1);
+        cr.adicionaProduto(c1, wallmart.getProdutosVestuario().get(2), 1);
+
+        System.out.println("\nItens adicionados no carrinho (compra 1): ");
         System.out.println(c1.getListaProdutos());
 
-        Compra compra1 = new Compra(cliente1, c1, FormaPagamento.CARTAO_A_VISTA);
+        System.out.println("\nRemovendo o item " + wallmart.getProdutosVestuario().get(2).toString()
+                + " do carrinho da compra 1.");
+        cr.removeProduto(c1, wallmart.getProdutosVestuario().get(2));
+
+        System.out.println("\nItens adicionados no carrinho (compra 1): ");
+        System.out.println(c1.getListaProdutos());
+
+        Compra compra1 = new Compra(cliente1, c1, FormaPagamento.CARTAO_PARCELADO);
 
         wallmart.adicionarCompraLoja(compra1);
 
-        System.out.println("\nCompra: ");
+        System.out.println("\nCompra 1: ");
+        System.out.println(wallmart.getCompras().get(1).getCliente().toString());
+        wallmart.getCompras().get(1).imprimeItensComprados();
 
-        for (Integer item : wallmart.getCompras().keySet()) {
+        System.out.println("\nAdicionando itens ao carrinho (compra 2): ");
+        cr.adicionaProduto(c2, wallmart.getProdutosPerfumaria().get(2), 1);
+        cr.adicionaProduto(c2, wallmart.getProdutosCalcado().get(2), 1);
+        cr.adicionaProduto(c2, wallmart.getProdutosVestuario().get(2), 1);
 
-            System.out.println(wallmart.getCompras().get(item).getCliente().toString());
-            wallmart.getCompras().get(item).imprimeItensComprados();
+        System.out.println("\nItens adicionados no carrinho (compra 2): ");
+        System.out.println(c2.getListaProdutos());
 
-        }
+        Compra compra2 = new Compra(cliente2, c2, FormaPagamento.CARTAO_A_VISTA);
 
-        System.out.println("\n####################### FIM DOS TESTES DE LOJA #######################");
+        wallmart.adicionarCompraLoja(compra2);
+
+        System.out.println("\nCompra 2: ");
+        System.out.println(wallmart.getCompras().get(2).getCliente().toString());
+        wallmart.getCompras().get(2).imprimeItensComprados();
+
+        System.out.println("\n####################### FIM DA SIMULAÇÃO DO E-COMMERCE #######################");
 
     }
 

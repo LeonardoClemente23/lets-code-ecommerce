@@ -99,6 +99,7 @@ public class App {
         System.out.println("\nCompra 1: ");
         System.out.println(wallmart.getCompras().get(1).getCliente().toString());
         wallmart.getCompras().get(1).imprimeItensComprados();
+        System.out.println("Valor total da compra: " + wallmart.getCompras().get(1).getValorDaCompra());
 
         System.out.println("\nAdicionando itens ao carrinho (compra 2): ");
         cr.adicionaProduto(c2, wallmart.getProdutosPerfumaria().get(2), 1);
@@ -115,6 +116,7 @@ public class App {
         System.out.println("\nCompra 2: ");
         System.out.println(wallmart.getCompras().get(2).getCliente().toString());
         wallmart.getCompras().get(2).imprimeItensComprados();
+        System.out.println("Valor total da compra: " + wallmart.getCompras().get(2).getValorDaCompra());
 
         System.out.println("\n####################### FIM DA SIMULAÇÃO DO E-COMMERCE #######################");
 

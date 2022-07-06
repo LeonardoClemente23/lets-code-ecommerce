@@ -92,9 +92,22 @@ public class App {
         System.out.println("\nItens adicionados no carrinho (compra 1): ");
         System.out.println(c1.getListaProdutos());
 
-        Compra compra1 = new Compra(cliente1, c1, FormaPagamento.CARTAO_PARCELADO);
+        Compra compra1 = new Compra(cliente1, c1, FormaPagamento.CARTAO_PARCELADO, 3);
 
-        wallmart.adicionarCompraLoja(compra1);
+        try {
+
+            compra1.aprovarCompra();
+            if (compra1.isCompraAprovada()) {
+                System.out.println("\nCompra aprovada! Forma de pagamento: " + compra1.getFormaPagamento().toString());
+                wallmart.adicionarCompraLoja(compra1);
+            } else
+                System.out.println("\nCompra não aprovada.");
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        }
 
         System.out.println("\nCompra 1: ");
         System.out.println(wallmart.getCompras().get(1).getCliente().toString());
@@ -109,9 +122,22 @@ public class App {
         System.out.println("\nItens adicionados no carrinho (compra 2): ");
         System.out.println(c2.getListaProdutos());
 
-        Compra compra2 = new Compra(cliente2, c2, FormaPagamento.CARTAO_A_VISTA);
+        Compra compra2 = new Compra(cliente2, c2, FormaPagamento.CARTAO_A_VISTA, 1);
 
-        wallmart.adicionarCompraLoja(compra2);
+        try {
+
+            compra2.aprovarCompra();
+            if (compra2.isCompraAprovada()) {
+                System.out.println("\nCompra aprovada! Forma de pagamento: " + compra2.getFormaPagamento().toString());
+                wallmart.adicionarCompraLoja(compra2);
+            } else
+                System.out.println("\nCompra não aprovada.");
+
+        } catch (Exception e) {
+
+            System.out.println(e.getMessage());
+
+        }
 
         System.out.println("\nCompra 2: ");
         System.out.println(wallmart.getCompras().get(2).getCliente().toString());

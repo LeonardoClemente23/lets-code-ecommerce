@@ -1,7 +1,12 @@
 package compra;
 
 import java.time.LocalDate;
+
+import RegrasFormaDePagamento.Boleto;
+import RegrasFormaDePagamento.CartaoAVista;
+import RegrasFormaDePagamento.CartaoParcelado;
 import RegrasFormaDePagamento.FormaPagamento;
+import RegrasFormaDePagamento.PayPal;
 import carrinho.Carrinho;
 import cliente.Cliente;
 import produtos.Produto;
@@ -13,11 +18,17 @@ public class Compra {
     private FormaPagamento formaPagamento;
     private LocalDate dataCompra;
     private double valorDaCompra;
+    private Integer parcelas;
+    private Boleto boleto;
+    private CartaoAVista cartaoAVista;
+    private CartaoParcelado cartaoParcelado;
+    private PayPal payPal;
 
-    public Compra(Cliente cliente, Carrinho carrinho, FormaPagamento formaPagamento) {
+    public Compra(Cliente cliente, Carrinho carrinho, FormaPagamento formaPagamento, Integer parcelas) {
         this.cliente = cliente;
         this.carrinho = carrinho;
         this.formaPagamento = formaPagamento;
+        setParcelas(parcelas);
         setDataCompra();
         somarValorTotal();
     }
@@ -29,10 +40,6 @@ public class Compra {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-
-    // public int getIdCarrinho() {
-    // return carrinho.getId();
-    // }
 
     public Carrinho getCarrinho() {
         return carrinho;
@@ -66,6 +73,14 @@ public class Compra {
         this.valorDaCompra = valorDaCompra;
     }
 
+    public Integer getParcelas() {
+        return parcelas;
+    }
+
+    public void setParcelas(Integer parcelas) {
+        this.parcelas = parcelas;
+    }
+
     public void somarValorTotal() {
         for (Produto item : carrinho.getListaProdutos().keySet()) {
             valorDaCompra += item.getPreco() * carrinho.getListaProdutos().get(item);
@@ -82,6 +97,63 @@ public class Compra {
             System.out.println(carrinho.getListaProdutos().get(item).toString() + " - " + item.toString());
 
         }
+
+    }
+
+    public void aprovarCompra() throws Exception {
+
+        switch (this.formaPagamento) {
+
+            case BOLETO:
+                this.boleto = new Boleto();
+                this.boleto.aprovaCompra();
+                break;
+
+            case CARTAO_A_VISTA:
+                this.cartaoAVista = new CartaoAVista();
+                this.cartaoAVista.aprovaCompra();
+                break;
+
+            case CARTAO_PARCELADO:
+                this.cartaoParcelado = new CartaoParcelado();
+                this.cartaoParcelado.validaNumeroParcelas(parcelas);
+                this.cartaoParcelado.aprovaCompra();
+                break;
+
+            case PAYPAL:
+                this.payPal = new PayPal();
+                this.payPal.aprovaCompra();
+                break;
+
+        }
+
+    }
+
+    public boolean isCompraAprovada() {
+
+        Boolean resposta = false;
+
+        switch (this.formaPagamento) {
+
+            case BOLETO:
+                resposta = this.boleto.isAprovadoCompra();
+                break;
+
+            case CARTAO_A_VISTA:
+                resposta = this.cartaoAVista.isAprovadoCompra();
+                break;
+
+            case CARTAO_PARCELADO:
+                resposta = this.cartaoParcelado.isAprovadoCompra();
+                break;
+
+            case PAYPAL:
+                resposta = this.payPal.isAprovadoCompra();
+                break;
+
+        }
+
+        return resposta;
 
     }
 

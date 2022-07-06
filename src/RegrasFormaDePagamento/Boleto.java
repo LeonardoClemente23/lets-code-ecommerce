@@ -6,7 +6,7 @@ public class Boleto implements Aprovacao {
     private Long codigoDeBarras;
     private boolean aprovadoCompra;
 
-    Boleto() {
+    public Boleto() {
         Random random = new Random();
         Long codigo = random.nextLong();
         if (codigo < 0) {

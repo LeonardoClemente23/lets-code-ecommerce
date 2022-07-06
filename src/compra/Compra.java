@@ -2,13 +2,13 @@ package compra;
 
 import java.time.LocalDate;
 
-import RegrasFormaDePagamento.Boleto;
-import RegrasFormaDePagamento.CartaoAVista;
-import RegrasFormaDePagamento.CartaoParcelado;
-import RegrasFormaDePagamento.FormaPagamento;
-import RegrasFormaDePagamento.PayPal;
 import carrinho.Carrinho;
 import cliente.Cliente;
+import pagamento.Boleto;
+import pagamento.CartaoAVista;
+import pagamento.CartaoParcelado;
+import pagamento.FormaPagamento;
+import pagamento.PayPal;
 import produtos.Produto;
 
 public class Compra {

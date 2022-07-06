@@ -1,4 +1,4 @@
-package RegrasFormaDePagamento;
+package pagamento;
 
 public class CartaoParcelado implements Aprovacao {
 

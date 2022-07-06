@@ -1,4 +1,4 @@
-package RegrasFormaDePagamento;
+package pagamento;
 
 public enum FormaPagamento {
     BOLETO(new Boleto()),

@@ -2,7 +2,7 @@ package carrinho;
 
 import java.util.HashMap;
 
-import exceptions.produtoAusenteException;
+import exceptions.ProdutoAusenteException;
 import produtos.Produto;
 
 public class CarrinhoRepository {
@@ -19,7 +19,7 @@ public class CarrinhoRepository {
             lista.remove(produto);
             carrinho.setListaProdutos(lista);
         } else {
-            throw new produtoAusenteException();
+            throw new ProdutoAusenteException();
         }
     }
 
@@ -28,7 +28,7 @@ public class CarrinhoRepository {
         if (lista.containsKey(produto)) {
             lista.put(produto, novaQuantidade);
         } else {
-            throw new produtoAusenteException();
+            throw new ProdutoAusenteException();
         }
     }
 }

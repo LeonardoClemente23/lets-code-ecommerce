@@ -12,12 +12,14 @@ public class Compra {
     private Carrinho carrinho;
     private FormaPagamento formaPagamento;
     private LocalDate dataCompra;
+    private double valorDaCompra;
 
     public Compra(Cliente cliente, Carrinho carrinho, FormaPagamento formaPagamento) {
         this.cliente = cliente;
         this.carrinho = carrinho;
         this.formaPagamento = formaPagamento;
         setDataCompra();
+        somarValorTotal();
     }
 
     public Cliente getCliente() {
@@ -54,6 +56,21 @@ public class Compra {
 
     private void setDataCompra() {
         this.dataCompra = LocalDate.now();
+    }
+
+    public double getValorDaCompra() {
+        return valorDaCompra;
+    }
+
+    public void setValorDaCompra(double valorDaCompra) {
+        this.valorDaCompra = valorDaCompra;
+    }
+
+    public void somarValorTotal() {
+        for (Produto item : carrinho.getListaProdutos().keySet()) {
+            valorDaCompra += item.getPreco() * carrinho.getListaProdutos().get(item);
+
+        }
     }
 
     public void imprimeItensComprados() {
